@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaultFlow</title>
+    
+    <style>
+        /* CSS styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', "Roboto", sans-serif;
+            color: #ffffff;
+            line-height: 1.5;
+            background-color: #060122;
+           
+        }
+        .top-background {
+            background-image: url(images/2.jpg); /* Insert your background image URL here */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background: #000000; /* Solid black background for the nav bar */
+            color: #ffffff;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .logo img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 15px;
+            font-weight: 500;
+        }
+        nav button {
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: rgb(250, 252, 252);
+        }
+        nav button:first-of-type {
+            background: #ffffff;
+            color: #290a5c;
+            margin-right: 10px;
+        }
+        nav button:last-of-type {
+            background: transparent;
+            border: 1px solid #ffffff;
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 40px;
+        }
+        .pill {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 10px 20px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .hero h1 {
+
+            font-size: 60px;
+
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #d3cce3;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            margin-bottom: 40px;
+            opacity: 0.8;
+        }
+        .hero button {
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .hero button:first-of-type {
+            background: #ffffff;
+            color: #290a5c;
+            margin-right: 15px;
+            border: none;
+        }
+        .hero button:last-of-type {
+            background: transparent;
+            border: 1px solid #ffffff;
+        }
+        .dashboard {
+            text-align: center;
+            padding: 40px;
+        }
+        .dashboard img {
+            max-width: 80%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: none;
+            outline: none;
+        }
+        .trusted {
+            text-align: center;
+            padding: 40px;
+        }
+        .trusted p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .logos img {
+            height: 40px;
+            filter: brightness(0) invert(1);
+        }
+        .features {
+            text-align: center;
+            padding: 60px 40px;
+        }
+        .features h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .features p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.8;
+            text-align: center;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: left;
+        }
+        .card img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+        }
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .card p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        .card a {
+            color: #26052c;
+            font-weight: 500;
+        }
+        .code-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .code-section > div:first-child {
+            flex: 1;
+            padding-right: 40px;
+        }
+        .code-section .icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+        }
+        .code-section h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .code-section p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        .code-section a {
+            color: #d600ff;
+            font-weight: 500;
+        }
+        .code-snippet {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 20px;
+        }
+        .code-snippet img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .analytics {
+            text-align: center;
+            padding: 60px 40px;
+        }
+        .analytics h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .analytics p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.8;
+        }
+        .analytics button {
+            padding: 15px 30px;
+            border-radius: 30px;
+            background: #ffffff;
+            color: #290a5c;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 60px 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+        footer div {
+            margin-bottom: 20px;
+        }
+        footer h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        footer p {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        .copyright {
+            grid-column: span 4;
+            text-align: left;
+            font-size: 14px;
+            opacity: 0.6;
+        }
+        .logo-bottom {
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .logo-bottom img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        @media (max-width: 768px) {
+            .code-section {
+                flex-direction: column;
+            }
+            .code-section > div:first-child {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            footer {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-background">
+        <nav>
+            <div class="logo"><img src="images/1.png" alt="VaultFlow Logo">VaultFlow</div>
+            <ul>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">About us</a></li>
+            </ul>
+            <button>Download the app</button>
+            <button>Talk to an expert</button>
+        </nav>
+        <section class="hero">
+            <div class="pill">We just raised $20M in Series B. Learn more.</div>
+            <h1>Modern analytics <br> for the modern world</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>Suspendisse varius enim in eros elementum tristique.</p>
+            <button>Download the app</button>
+            <button>Talk to an expert</button>
+        </section>
+        <section class="dashboard">
+            <img src="images/3.png" alt="Dashboard screenshot">
+        </section>
+    </div>
+    <section class="trusted">
+        <p>Trusted by teams at over 1,000 of the world's leading organizations</p>
+        <div class="logos">
+            <P>Dell</P>
+            <P>Zendesk</P>
+            <P>Rakuten</P>
+            <P>Pacific Funds</P>
+            <P>NCR</P>
+            <P>Lattice</P>
+            <P>TED</P>
+        </div>
+    </section>
+    <section class="features">
+        <h2>Features that <br>work for your <br>future.</h2>
+        <p>Check out our amazing features and experience the power of Vaultflow for yourself.</p>
+        <div class="cards">
+            <div class="card">
+                <img src="images/4.png" alt="Analytics icon">
+                <h3>Analytics Dashboard</h3>
+                <p>Our Analytics Dashboard provides a clear and intuitive interface for you to easily
+                     analyze your data. From customizable graphs to real-time data updates, our dashboard 
+                     offers everything you need to gain valuable insights.</p>
+                <a href="#">View dashboard</a>
+            </div>
+            <div class="card">
+                <img src="images/5.png" alt="Tokens icon">
+                <h3>Digital Credit Tokens</h3>
+                <p>Reward your customers and incentivize engagement with our innovative digital credit 
+                    tokens. Our tokens can be customized to fit your branding and are a flexible and scalable 
+                    way to drive customer loyalty and encourage repeat business.</p>
+                <a href="#">View tokens</a>
+            </div>
+        </div>
+    </section>
+    <section class="code-section">
+        <div>
+            <img src="images/6.png" alt="Code Collaboration Icon" class="icon">
+            <h2>Code collaboration</h2>
+            <p>Our advanced synchronization technology ensures that your data is always up-to-date and accurate, no matter where it's coming from. Whether you're integrating data from multiple sources or working with a team of developers, our synchronization technology makes it easy to collaborate and ensure that your data is consistent and reliable.</p>
+            <a href="#">View code collaboration</a>
+        </div>
+        <div class="code-snippet">
+            <img src="images/7.png" alt="DigitalToken.js Code Snippet">
+        </div>
+    </section>
+    <section class="analytics">
+        <h2>Our powerful analytics provides invaluable insights.</h2>
+        <p>Unlock the power of data with our cutting-edge analytics product. Get instant insights with our user-friendly Analytics Dashboard, and take advantage of our innovative digital credit tokens to reward your customers and incentivize engagement.</p>
+        <button>Download the app</button>
+    </section>
+    <footer>
+        <div class="contact">
+            <h3>Contact</h3>
+            <p>Work inquiries: work@vaultflow.com</p>
+            <p>PR and speaking: press@vaultflow.com</p>
+            <p>New business: newbusiness@vaultflow.com</p>
+        </div>
+        <div class="address">
+            <h3>Address</h3>
+            <p>396 11th Street, Floor 2</p>
+            <p>San Francisco, CA 94103</p>
+        </div>
+        <div class="careers">
+            <h3>Careers</h3>
+            <p>careers@vaultflow.com</p>
+        </div>
+        <div class="social">
+            <h3>Social</h3>
+            <p>Twitter</p>
+            <p>Instagram</p>
+            <p>TikTok</p>
+        </div>
+        <div class="copyright">© 2023 VaultFlow. All Rights Reserved.</div>
+        <div class="logo-bottom"><img src="images/1.png" alt="VaultFlow Logo">VaultFlow</div>
+    </footer>
+    <script>
+        // JavaScript code (empty for now, add functionality if needed)
+        console.log("VaultFlow page loaded");
+    </script>
+</body>
+</html>
